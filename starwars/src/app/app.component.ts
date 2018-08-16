@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterService } from './services/character.service';
 import { Character } from './models/character';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,12 @@ import { Character } from './models/character';
 })
 export class AppComponent implements OnInit {
 
-  characters: Character[] = [];
+  characters: Observable<Character[]>;
 
   constructor(private service: CharacterService) { }
 
   ngOnInit() {
-    this.service.getPeople().subscribe(data => {
-      console.log(data);
-      this.characters = data;
-    });
+    this.characters = this.service.getPeople();
   }
 
 }
