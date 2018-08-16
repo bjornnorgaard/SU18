@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterService } from './services/character.service';
 import { Character } from './models/character';
-import { Observable } from 'rxjs';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +10,19 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
-  characters: Observable<Character[]>;
+  displayedColumns: string[] = ['name', 'height', 'mass', 'hair_color', 'created'];
+  dataSource: MatTableDataSource<Character>;
 
   constructor(private service: CharacterService) { }
 
   ngOnInit() {
-    this.characters = this.service.getPeople();
+    this.service.getPeople().subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+    });
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }

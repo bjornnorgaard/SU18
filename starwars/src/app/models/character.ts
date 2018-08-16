@@ -1,5 +1,8 @@
 export class Character {
     constructor(
-        public id: number,
-        public name: string) { }
+        public name: string,
+        public height: string,
+        public mass: string,
+        public hair_color: string,
+        public created: string) { }
 }

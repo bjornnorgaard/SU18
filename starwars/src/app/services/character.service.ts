@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Character } from '../models/character';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,9 @@ export class CharacterService {
         map(data => {
           data.results.concat(this.cache);
           return data.results
+        }),
+        tap(data => {
+          console.log(data);
         }),
       );
   }
