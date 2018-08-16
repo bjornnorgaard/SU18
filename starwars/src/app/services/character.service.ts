@@ -20,10 +20,7 @@ export class CharacterService {
         map(data => {
           data.results.concat(this.cache);
           return data.results
-        }),
-        tap(data => {
-          console.log(data);
-        }),
+        })
       );
   }
 
