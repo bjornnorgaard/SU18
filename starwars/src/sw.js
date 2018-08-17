@@ -1,5 +1,4 @@
 self.addEventListener('fetch', event => {
-    console.log('in sw.js')
     event.respondWith(caches
         .match(event.request)
         .then(cacheResponse => cacheResponse || fetch(event.request).then(response => {
