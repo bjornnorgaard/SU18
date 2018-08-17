@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CharacterService } from './services/character.service';
-import { Character } from './models/character';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-root',
@@ -10,23 +7,25 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class AppComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'height', 'mass', 'hair_color', 'created'];
-  dataSource: MatTableDataSource<Character>;
+  installPromptEvent;
 
-  constructor(private service: CharacterService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.service.getPeople().subscribe(data => {
-      this.dataSource = new MatTableDataSource(data);
+    console.log('init')
+    window.addEventListener('beforeinstallprompt', event => {
+      console.log('event')
+      event.preventDefault();
+      this.installPromptEvent = event;
     });
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
   install() {
-
+    console.log('install')
+    this.installPromptEvent.prompt();
+    this.installPromptEvent.userChoice.then(choice => {
+      this.installPromptEvent = null;
+    });
   }
 
 }
