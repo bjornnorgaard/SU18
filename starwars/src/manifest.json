@@ -1,8 +1,8 @@
 {
   "name": "Star Wars Characters",
   "short_name": "Stawarz",
-  "theme_color": "#2196f3",
-  "background_color": "#2196f3",
+  "theme_color": "#673AB7",
+  "background_color": "#FFFFFF",
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",

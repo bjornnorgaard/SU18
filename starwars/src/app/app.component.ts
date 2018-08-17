@@ -25,4 +25,8 @@ export class AppComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  install() {
+
+  }
+
 }
