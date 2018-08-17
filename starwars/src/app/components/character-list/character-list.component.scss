@@ -1,5 +1,17 @@
-.list {
-    margin: 2em 5em 0 5em;
+.filter-input {
+    margin: 1em;
+    width: 100%;
+}
+
+@media (min-width: 500px) {
+    .list {
+        margin: 2em 5em 0 5em;
+    }
+
+    .filter-input {
+        margin: 0;
+    }
+
 }
 
 table {
@@ -8,9 +20,8 @@ table {
 
 .mat-form-field {
     font-size: 14px;
-    width: 100%;
 }
 
 td, th {
-    width: 20%;
+    width: 25%;
 }

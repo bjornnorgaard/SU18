@@ -10,7 +10,7 @@ import { CharacterService } from '../../services/character.service';
 })
 export class CharacterListComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'height', 'mass', 'hair_color', 'created'];
+  displayedColumns: string[] = ['name', 'height', 'mass', 'hair_color'];
   dataSource: MatTableDataSource<Character>;
 
   constructor(private service: CharacterService) { }

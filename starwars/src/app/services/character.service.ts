@@ -18,13 +18,11 @@ export class CharacterService {
     if (!this.cache) {
       this.cache = this.http.get<any>(`${this.url}/people`)
         .pipe(
-          tap(_ => console.log('Hitting network')),
           map(data => data.results),
           publishReplay(1),
           refCount()
         );
     }
-    console.log('Returning cache');
     return this.cache;
   }
 
