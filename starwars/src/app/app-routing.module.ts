@@ -4,7 +4,7 @@ import { CharacterListComponent } from './components/character-list/character-li
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/', pathMatch: 'full'},
+  {path: '', redirectTo: 'list', pathMatch: 'full'},
   {path: 'list', component: CharacterListComponent},
   {path: '404', component: NotFoundComponent},
   {path: '**', component: NotFoundComponent}
