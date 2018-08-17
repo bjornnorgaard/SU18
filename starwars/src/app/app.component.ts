@@ -12,16 +12,13 @@ export class AppComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('init')
     window.addEventListener('beforeinstallprompt', event => {
-      console.log('event')
       event.preventDefault();
       this.installPromptEvent = event;
     });
   }
 
   install() {
-    console.log('install')
     this.installPromptEvent.prompt();
     this.installPromptEvent.userChoice.then(choice => {
       this.installPromptEvent = null;
